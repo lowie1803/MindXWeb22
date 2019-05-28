@@ -1,7 +1,7 @@
 'use strict'
 
 function randomElement(l, r){
-  return Math.floor(Math.random*(r-l+1))+l;
+  return Math.floor(Math.random()*(r-l+1))+l;
 }
 
 function sort(input) {
@@ -63,38 +63,24 @@ function search(input, target) {
   else return -1;
 }
 
-function check(input)
-{
-  for (var i=1; i<input.length; i++) if (input[i]==input[i-1]) return false;
-  return true;
-}
-
 function generate(testLengthArray){
-  var ret=[];
-  var obj={
-    input: [],
-    target: 0,
-    output:-1
-  }
+  const ret=[];
+  
   var array=[];
   for (let i=0; i<testLengthArray.length; i++)
   {
-    var l=testLengthArray[i];
+    const l=testLengthArray[i];
+    const obj={
+      input: [],
+      target: 0,
+      output:-1
+    }
     array=[];
-    for (var j=0; j<l; j++) array.push(randomElement(-10000, 10000));
+    for (let j=0; j<l; j++) array.push(randomElement(-10000, 10000));
     array=sort(array);
 
-    if (!check(array))  
-    {
-      i--;
-      continue;
-    }
-
     obj["input"]=array;
-    setTimeout(function(){
-      console.log("lol"+i+" "+l+" "+array.length)
-    }, 1000);
-    
+
     if (i==0) obj["target"]=array[0], obj["output"]=0;
     else if (i==1) obj["target"]=array[array.length-1], obj["output"]=array.length-1;
     else if (i==2) 
@@ -107,16 +93,10 @@ function generate(testLengthArray){
       var temp=randomElement(-10000, 10000);
       obj["target"]=temp, obj["output"]=search(array, temp);
     }
+    
     ret.push(obj);
   }
   return ret;
-  // return Array.from({length : testLengthArray.length})
-  //   .map(item => ({
-  //     input: Array.from({length: item}).map(item => []),
-  //     target: 0,
-  //     output: -1
-  //   })
-  // ); // Remove this line and change to your own algorithm
 }
 
 module.exports = generate
