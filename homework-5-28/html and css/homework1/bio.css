@@ -1,0 +1,9 @@
+h1{
+    background-color: black;
+    color: greenyellow;
+    display: flexbox;
+}
+
+.italic-text{
+    font-style: italic;
+}

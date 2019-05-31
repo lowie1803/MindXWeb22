@@ -1,0 +1,40 @@
+h1 {
+    color: #663399;
+
+}
+
+#top {
+    color: aqua;
+}
+
+.text-red{
+    color: red;
+}
+
+h3.text-red{
+    color: gray;
+    font-size: 100px;
+
+}
+
+ul li {
+    color: blue;
+}
+
+ul > ol > li {
+    color: red;
+
+}
+
+img:hover {
+    width: 500px;
+
+} 
+
+p.text-red{
+    background-color: black;
+    background-image: url(https://yt3.ggpht.com/-FJXWJ1x1bEQ/AAAAAAAAAAI/AAAAAAAAAAA/ZtyuZ-elFr4/s900-c-k-no-mo-rj-c0xffffff/photo.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
